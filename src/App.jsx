@@ -159,7 +159,7 @@ const App = () => {
       ],
       delay: 300,
       stagger: true,
-      image: "./src/sibutet.png"
+      image: "./src/assets/sibutet.png"
     },
     {
       title: "Website Relawanku",
@@ -176,7 +176,7 @@ const App = () => {
       ],
       delay: 100,
       stagger: false,
-      image: "./src/relawanku.png"
+      image: "./src/assets/relawanku.png"
     },
     {
       title: "Novel App",
@@ -193,7 +193,7 @@ const App = () => {
       ],
       delay: 300,
       stagger: true,
-      image: "./src/novelapp.jpeg"
+      image: "./src/assets/novelapp.jpeg"
     }
   ];
 
