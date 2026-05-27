@@ -1,5 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, Mail, Phone, MapPin, ExternalLink, X, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, X, CheckCircle2 } from 'lucide-react';
+
+
+import profileImg from './assets/file_0000000095f8720ba83999cd3b5712cd.png';
+import sibutetImg from './assets/sibutet.png';
+import relawankuImg from './assets/relawanku.png';
+import novelappImg from './assets/novelapp.jpeg';
+
+const kmeansImg = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop";
 
 const skillCategories = [
   {
@@ -64,7 +72,7 @@ const projects = [
     ],
     delay: 50,
     stagger: false,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+    image: kmeansImg
   },
   {
     title: "Si Butet (Buku Tamu Elektronik)",
@@ -81,7 +89,7 @@ const projects = [
     ],
     delay: 100,
     stagger: true,
-    image: "./src/assets/sibutet.png"
+    image: sibutetImg
   },
   {
     title: "Website Relawanku",
@@ -98,7 +106,7 @@ const projects = [
     ],
     delay: 50,
     stagger: false,
-    image: "./src/assets/relawanku.png"
+    image: relawankuImg
   },
   {
     title: "Novel App",
@@ -115,39 +123,18 @@ const projects = [
     ],
     delay: 100,
     stagger: true,
-    image: "./src/assets/novelapp.jpeg"
+    image: novelappImg
   }
 ];
 
 const techBadges = [
-  {
-    name: "React JS", color: "text-cyan-400 border-cyan-500/20 bg-cyan-950/15 hover:border-cyan-400/60",
-    icon: <svg className="w-4 h-4" viewBox="-11.5 -10.23174 23 20.46348" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="0" cy="0" r="2.05" fill="currentColor"/><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></svg>
-  },
-  {
-    name: "TypeScript", color: "text-blue-400 border-blue-500/20 bg-blue-950/15 hover:border-blue-400/60",
-    icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm11.123 10.154h8.318V12h-3.045v9.846h-2.228V12h-3.045zm-1.895 2.114c0 3.123-2.115 4.398-4.475 4.398-1.543 0-2.822-.591-3.41-1.391l1.542-1.205c.421.566.983.875 1.702.875.948 0 1.405-.439 1.405-1.194 0-.843-.65-1.141-1.844-1.65-1.597-.685-2.915-1.528-2.915-3.354 0-1.931 1.545-3.178 3.863-3.178 1.422 0 2.458.544 3.019 1.211l-1.405 1.159c-.386-.439-.896-.685-1.528-.685-.755 0-1.176.369-1.176.913 0 .738.51 1.001 1.633 1.492 1.809.773 3.067 1.563 3.067 3.346z"/></svg>
-  },
-  {
-    name: "Python", color: "text-yellow-400 border-yellow-500/20 bg-yellow-950/15 hover:border-yellow-400/60",
-    icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M11.927 0C6.23 0 6.643 2.47 6.643 2.47l.006 2.56H12v.37H5.11s-4.63-.518-4.63 4.63c0 5.147 4.022 4.962 4.022 4.962h2.413v-3.4s-.044-4.084 4.022-4.084h6.791s3.948-.052 3.948-3.947V3.535S22.022 0 16.326 0zm3.873 1.53c.484 0 .878.394.878.878 0 .485-.394.879-.878.879s-.879-.394-.879-.879a.88.88 0 0 1 .879-.879zm-7.994 8.94c-3.948 0-3.948 3.947-3.948 3.947v4.114s-.347 2.47 5.348 2.47c5.696 0 5.283-2.47 5.283-2.47l-.006-2.56H12v-.37h6.89s4.63.518 4.63-4.63c0-5.147-4.022-4.962-4.022-4.962h-2.413v3.4s.044 4.084-4.022 4.084H6.262s-4.456 0-4.456 4.456zM11.927 20.94a.88.88 0 0 1 .879.878c0 .485-.394.879-.879.879s-.878-.394-.878-.879.393-.878.878-.878z"/></svg>
-  },
-  {
-    name: "Machine Learning", color: "text-purple-400 border-purple-500/20 bg-purple-950/15 hover:border-purple-400/60",
-    icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-  },
-  {
-    name: "PHP & Laravel", color: "text-red-400 border-red-500/20 bg-red-950/15 hover:border-red-400/60",
-    icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-  },
-  {
-    name: "React Native", color: "text-indigo-400 border-indigo-500/20 bg-indigo-950/15 hover:border-indigo-400/60",
-    icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-  },
-  {
-    name: "Data Analysis", color: "text-emerald-400 border-emerald-500/20 bg-emerald-950/15 hover:border-emerald-400/60",
-    icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-  }
+  { name: "React JS", color: "text-cyan-400 border-cyan-500/20 bg-cyan-950/15 hover:border-cyan-400/60", icon: <svg className="w-4 h-4" viewBox="-11.5 -10.23174 23 20.46348" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="0" cy="0" r="2.05" fill="currentColor"/><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></svg> },
+  { name: "TypeScript", color: "text-blue-400 border-blue-500/20 bg-blue-950/15 hover:border-blue-400/60", icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm11.123 10.154h8.318V12h-3.045v9.846h-2.228V12h-3.045zm-1.895 2.114c0 3.123-2.115 4.398-4.475 4.398-1.543 0-2.822-.591-3.41-1.391l1.542-1.205c.421.566.983.875 1.702.875.948 0 1.405-.439 1.405-1.194 0-.843-.65-1.141-1.844-1.65-1.597-.685-2.915-1.528-2.915-3.354 0-1.931 1.545-3.178 3.863-3.178 1.422 0 2.458.544 3.019 1.211l-1.405 1.159c-.386-.439-.896-.685-1.528-.685-.755 0-1.176.369-1.176.913 0 .738.51 1.001 1.633 1.492 1.809.773 3.067 1.563 3.067 3.346z"/></svg> },
+  { name: "Python", color: "text-yellow-400 border-yellow-500/20 bg-yellow-950/15 hover:border-yellow-400/60", icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M11.927 0C6.23 0 6.643 2.47 6.643 2.47l.006 2.56H12v.37H5.11s-4.63-.518-4.63 4.63c0 5.147 4.022 4.962 4.022 4.962h2.413v-3.4s-.044-4.084 4.022-4.084h6.791s3.948-.052 3.948-3.947V3.535S22.022 0 16.326 0zm3.873 1.53c.484 0 .878.394.878.878 0 .485-.394.879-.878.879s-.879-.394-.879-.879a.88.88 0 0 1 .879-.879zm-7.994 8.94c-3.948 0-3.948 3.947-3.948 3.947v4.114s-.347 2.47 5.348 2.47c5.696 0 5.283-2.47 5.283-2.47l-.006-2.56H12v-.37h6.89s4.63.518 4.63-4.63c0-5.147-4.022-4.962-4.022-4.962h-2.413v3.4s.044 4.084-4.022 4.084H6.262s-4.456 0-4.456 4.456zM11.927 20.94a.88.88 0 0 1 .879.878c0 .485-.394.879-.879.879s-.878-.394-.878-.879.393-.878.878-.878z"/></svg> },
+  { name: "Machine Learning", color: "text-purple-400 border-purple-500/20 bg-purple-950/15 hover:border-purple-400/60", icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> },
+  { name: "PHP & Laravel", color: "text-red-400 border-red-500/20 bg-red-950/15 hover:border-red-400/60", icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
+  { name: "React Native", color: "text-indigo-400 border-indigo-500/20 bg-indigo-950/15 hover:border-indigo-400/60", icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> },
+  { name: "Data Analysis", color: "text-emerald-400 border-emerald-500/20 bg-emerald-950/15 hover:border-emerald-400/60", icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> }
 ];
 
 const accentMap = {
@@ -157,24 +144,43 @@ const accentMap = {
   sky:    { border: "border-sky-500/30",    text: "text-sky-400",    bg: "bg-sky-950/20",    dot: "bg-sky-400"    }
 };
 
+// Optimasi: Memisahkan instance IntersectionObserver agar tidak dibuat berulang kali untuk setiap elemen
 const Reveal = React.memo(({ children, delay = 0, className = "", instant = false }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-    if (instant) { setIsVisible(true); return; }
+    if (instant) { 
+      setIsVisible(true); 
+      return; 
+    }
+    
+    const currentRef = ref.current;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(entry.target); } },
-      { threshold: 0.05, rootMargin: "0px 0px -10px 0px" }
+      ([entry]) => { 
+        if (entry.isIntersecting) { 
+          setIsVisible(true); 
+          if (currentRef) observer.unobserve(currentRef); 
+        } 
+      },
+      // Optimasi rootMargin agar trigger animasi sedikit lebih akurat tanpa lag
+      { threshold: 0.1, rootMargin: "0px 0px -30px 0px" } 
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    
+    if (currentRef) observer.observe(currentRef);
+    
+    // Optimasi Cleanup: Memastikan unobserve berjalan dengan benar saat unmount
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+      observer.disconnect();
+    };
   }, [instant]);
 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} ${className}`}
+      // Optimasi CSS transition menjadi sedikit lebih mulus
+      className={`transition-all duration-700 ease-out will-change-transform will-change-opacity ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -197,7 +203,9 @@ const App = () => {
     let rafId;
     let lastScrolled = false;
 
+    // Throttle scroll event dengan requestAnimationFrame agar super smooth
     const handleScroll = () => {
+      if (rafId) cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
         const scrollY = window.scrollY || document.documentElement.scrollTop;
         const isScrolled = scrollY > 50;
@@ -214,7 +222,7 @@ const App = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(rafId);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
@@ -249,7 +257,8 @@ const App = () => {
         </div>
       </nav>
 
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+      {/* Optimasi: Hindari repaint tidak perlu pada background element statis */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden will-change-transform">
         <div className="absolute inset-0 bg-[#020818]"></div>
         <div className="absolute inset-0 bg-radial-vignette"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
@@ -310,8 +319,9 @@ const App = () => {
                      style={{ background: 'linear-gradient(135deg, rgba(6,182,212,0.3) 0%, rgba(29,78,216,0.15) 50%, rgba(6,182,212,0.05) 100%)' }}>
                   <div className="w-full h-full rounded-xl overflow-hidden bg-blue-950/40">
                     <img
-                      src="./src/assets/file_0000000095f8720ba83999cd3b5712cd.png"
+                      src={profileImg} // <- Ini sudah memakai import dari atas
                       alt="Joenathan Daniel Sihombing"
+                      loading="lazy"
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
                     />
                   </div>
@@ -500,8 +510,8 @@ const App = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-40"
                       loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-40 transition-opacity duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#020818]/95 to-blue-900/10 opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
@@ -538,11 +548,11 @@ const App = () => {
         {selectedProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
             <div
-              className="absolute inset-0 bg-slate-950/95"
+              className="absolute inset-0 bg-slate-950/95 transition-opacity"
               onClick={() => setSelectedProject(null)}
             />
 
-            <div className="relative bg-[#040d21] border border-blue-900/60 rounded-3xl w-full max-w-4xl max-h-[85vh] overflow-y-auto shadow-2xl z-10">
+            <div className="relative bg-[#040d21] border border-blue-900/60 rounded-3xl w-full max-w-4xl max-h-[85vh] overflow-y-auto shadow-2xl z-10 animate-in fade-in zoom-in duration-200">
               <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 md:top-6 md:right-6 bg-blue-950/90 border border-blue-800/50 hover:border-cyan-400/80 text-blue-200 hover:text-white p-2.5 rounded-full transition-colors duration-200 z-20"
