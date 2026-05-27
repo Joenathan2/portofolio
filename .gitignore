@@ -1,4 +1,4 @@
-# Logs
+# Logs (Catatan Error/Sistem)
 logs
 *.log
 npm-debug.log*
@@ -7,18 +7,46 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directories (Folder library raksasa)
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build outputs (Folder hasil kompilasi program)
+dist/
+dist-ssr/
+build/
+out/
+.vercel/
+
+# Local environment files (Kunci Rahasia, API Keys, Data Sensitif)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
 *.local
 
-# Editor directories and files
+# Diagnostic reports (Laporan sistem)
+.pnp
+.pnp.js
+.eslintcache
+
+# Editor directories and files (Sistem konfigurasi aplikasi editor)
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.bak
+*.tmp
+
+# OS-specific files (File sampah bawaan sistem operasi Windows/Mac)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
