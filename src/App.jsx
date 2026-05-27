@@ -34,7 +34,7 @@ const experiences = [
       "Merancang Si Butet (Sistem Buku Tamu Elektronik) untuk digitalisasi pendataan riwayat kunjungan tamu.",
       "Menyusun laporan teknis terkait implementasi dan optimalisasi sistem selama masa magang."
     ],
-    delay: 100
+    delay: 50
   },
   {
     period: "Sep – Des 2024",
@@ -44,7 +44,7 @@ const experiences = [
       "Menyelesaikan program pelatihan intensif di bidang pengembangan aplikasi web front-end menggunakan React JS.",
       "Menerapkan best practices dalam arsitektur komponen, manajemen state, dan integrasi RESTful API."
     ],
-    delay: 200
+    delay: 100
   }
 ];
 
@@ -79,7 +79,7 @@ const projects = [
       "Fitur filter, pencarian riwayat kunjungan instan, dan ekspor laporan berkala",
       "Autentikasi berlapis untuk menjaga integritas data kunjungan institusi"
     ],
-    delay: 150,
+    delay: 100,
     stagger: true,
     image: "./src/assets/sibutet.png"
   },
@@ -88,7 +88,7 @@ const projects = [
     year: "2024",
     category: "Platform Kampanye Sosial & Relawan",
     desc: "Platform berbasis web modern yang mempertemukan komunitas sosial dengan sukarelawan untuk mempermudah pendaftaran aksi sosial secara digital.",
-    longDesc: "Relawanku adalah platform kolaboratif interaktif yang dibangun menggunakan React JS dan TypeScript untuk memfasilitasi gerakan sosial di Indonesia. Berfokus pada arsitektur komponen yang reusable, performa render yang efisien, serta manajemen state global yang kompleks dengan Redux Toolkit untuk menangani ribuan data kampanye dan interaksi pengguna.",
+    longDesc: "Relawanku is standard collaborative platform built using React JS and TypeScript. Berfokus pada arsitektur komponen yang reusable, performa render yang efisien, serta manajemen state global yang kompleks dengan Redux Toolkit untuk menangani ribuan data kampanye dan interaksi pengguna.",
     techStack: ["React JS", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Context API"],
     features: [
       "Sistem pendaftaran dan pencarian kampanye sosial berbasis lokasi dan kategori",
@@ -113,7 +113,7 @@ const projects = [
       "Mode gelap (Dark Mode) dan terang terintegrasi langsung",
       "Optimasi load data teks panjang dengan minim penggunaan memori perangkat"
     ],
-    delay: 150,
+    delay: 100,
     stagger: true,
     image: "./src/assets/novelapp.jpeg"
   }
@@ -165,7 +165,7 @@ const Reveal = React.memo(({ children, delay = 0, className = "", instant = fals
     if (instant) { setIsVisible(true); return; }
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(entry.target); } },
-      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -10px 0px" }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -174,7 +174,7 @@ const Reveal = React.memo(({ children, delay = 0, className = "", instant = fals
   return (
     <div
       ref={ref}
-      className={`will-change-[transform,opacity] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-[0.99]'} ${className}`}
+      className={`transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -232,7 +232,7 @@ const App = () => {
   return (
     <div className="relative min-h-screen text-slate-100 selection:bg-cyan-500 selection:text-slate-900 overflow-x-hidden bg-[#020818]">
 
-      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'py-3 bg-[#020818]/90 backdrop-blur-md border-b border-blue-900/40 shadow-lg shadow-black/20' : 'py-6 bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'py-3 bg-[#030b21] border-b border-blue-900/40 shadow-lg' : 'py-6 bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="font-bold text-lg tracking-tighter text-white flex items-center gap-0.5" style={{ fontFamily: "'Syne', sans-serif" }}>
             JDS<span className="text-cyan-400">.</span>
@@ -251,19 +251,8 @@ const App = () => {
 
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 bg-[#020818]"></div>
-
-        <div className="absolute inset-0 will-change-transform" style={{ transform: 'translate3d(0,0,0)' }}>
-          <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full mix-blend-screen opacity-35 animate-spin-slow blur-3xl"
-               style={{ background: 'radial-gradient(circle, rgba(29,78,216,0.6) 0%, rgba(29,78,216,0) 70%)' }}/>
-        </div>
-        <div className="absolute inset-0 will-change-transform" style={{ transform: 'translate3d(0,0,0)' }}>
-          <div className="absolute top-[20%] right-[-15%] w-[50vw] h-[50vw] rounded-full mix-blend-screen opacity-25 animate-blob blur-3xl"
-               style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.5) 0%, rgba(6,182,212,0) 70%)' }}/>
-        </div>
-        <div className="absolute bottom-[-15%] left-[10%] w-[60vw] h-[60vw] rounded-full mix-blend-screen opacity-20 animate-pulse-slow blur-3xl"
-             style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.4) 0%, rgba(20,184,166,0) 70%)' }}/>
-        <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-noise" style={{ transform: 'translate3d(0,0,0)' }}></div>
-        <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-radial-vignette"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
@@ -273,7 +262,7 @@ const App = () => {
 
             <div className="lg:col-span-7 order-2 lg:order-1 text-center lg:text-left">
               <Reveal delay={50} instant={true}>
-                <div className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] mb-6 md:mb-8 bg-blue-950/50 border border-cyan-500/20 backdrop-blur-md px-4 py-2.5 rounded-full text-cyan-300/90">
+                <div className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] mb-6 md:mb-8 bg-blue-950/70 border border-cyan-500/20 px-4 py-2.5 rounded-full text-cyan-300/90">
                   <MapPin size={12} className="text-cyan-400 shrink-0" />
                   Medan, Sumatera Utara, Indonesia
                 </div>
@@ -292,22 +281,22 @@ const App = () => {
               </Reveal>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-blue-900/40 text-left">
-                <Reveal delay={200} className="sm:col-span-1" instant={true}>
+                <Reveal delay={150} className="sm:col-span-1" instant={true}>
                   <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-cyan-400/50 mb-2">Fokus Utama</p>
                   <p className="text-sm font-semibold uppercase tracking-widest text-cyan-300 leading-relaxed" style={{ fontFamily: "'Syne', sans-serif" }}>
                     Web &<br/>Mobile<br/>Developer
                   </p>
                 </Reveal>
-                <Reveal delay={250} className="sm:col-span-2" instant={true}>
+                <Reveal delay={200} className="sm:col-span-2" instant={true}>
                   <p className="text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-md tracking-tight text-blue-100/80 mb-6">
                     Mengembangkan aplikasi web modern yang responsif dan aplikasi mobile fungsional, terintegrasi dengan{' '}
                     <span className="font-medium text-cyan-400">keahlian analisis data</span> tersertifikasi untuk menghadirkan solusi teknologi berkinerja tinggi.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="#projects" className="bg-cyan-500 text-[#020818] px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-cyan-400 transition-all duration-300 shadow-[0_0_25px_rgba(34,211,238,0.25)]" style={{ fontFamily: "'Syne', sans-serif" }}>
+                    <a href="#projects" className="bg-cyan-500 text-[#020818] px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.15)]" style={{ fontFamily: "'Syne', sans-serif" }}>
                       Lihat Proyek
                     </a>
-                    <a href="#contact" className="border border-cyan-500/40 text-cyan-200 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-cyan-500/10 transition-all duration-300" style={{ fontFamily: "'Syne', sans-serif" }}>
+                    <a href="#contact" className="border border-cyan-500/40 text-cyan-200 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-cyan-500/5 transition-all duration-300" style={{ fontFamily: "'Syne', sans-serif" }}>
                       Hubungi Saya
                     </a>
                   </div>
@@ -316,20 +305,20 @@ const App = () => {
             </div>
 
             <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end mb-4 lg:mb-0">
-              <Reveal delay={150} instant={true}>
-                <div className="relative w-48 h-64 sm:w-60 sm:h-80 md:w-80 md:h-[27rem] lg:w-[22rem] lg:h-[30rem] rounded-2xl p-[3px] lg:-rotate-2 hover:rotate-0 transition-all duration-700 group"
-                     style={{ background: 'linear-gradient(135deg, rgba(6,182,212,0.4) 0%, rgba(29,78,216,0.2) 50%, rgba(6,182,212,0.1) 100%)' }}>
+              <Reveal delay={100} instant={true}>
+                <div className="relative w-48 h-64 sm:w-60 sm:h-80 md:w-80 md:h-[27rem] lg:w-[22rem] lg:h-[30rem] rounded-2xl p-[3px] lg:-rotate-2 hover:rotate-0 transition-all duration-500 group"
+                     style={{ background: 'linear-gradient(135deg, rgba(6,182,212,0.3) 0%, rgba(29,78,216,0.15) 50%, rgba(6,182,212,0.05) 100%)' }}>
                   <div className="w-full h-full rounded-xl overflow-hidden bg-blue-950/40">
                     <img
                       src="./src/assets/file_0000000095f8720ba83999cd3b5712cd.png"
                       alt="Joenathan Daniel Sihombing"
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
                     />
                   </div>
-                  <div className="absolute -bottom-4 -left-4 md:-bottom-5 md:-left-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-[#020818] text-[9px] md:text-[11px] font-bold uppercase tracking-widest px-5 py-2.5 md:px-6 md:py-3 rounded-full shadow-[0_0_25px_rgba(34,211,238,0.4)]" style={{ fontFamily: "'Syne', sans-serif" }}>
+                  <div className="absolute -bottom-4 -left-4 md:-bottom-5 md:-left-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-[#020818] text-[9px] md:text-[11px] font-bold uppercase tracking-widest px-5 py-2.5 md:px-6 md:py-3 rounded-full" style={{ fontFamily: "'Syne', sans-serif" }}>
                     Data Analyst BNSP
                   </div>
-                  <div className="absolute -top-3 -right-3 w-16 h-16 rounded-full border border-cyan-500/30 flex items-center justify-center bg-blue-950/60 backdrop-blur-sm">
+                  <div className="absolute -top-3 -right-3 w-16 h-16 rounded-full border border-cyan-500/30 flex items-center justify-center bg-[#030b21]">
                     <span className="text-[10px] font-bold text-cyan-400 text-center leading-tight" style={{ fontFamily: "'Syne', sans-serif" }}>3.68<br/>/4.00</span>
                   </div>
                 </div>
@@ -339,14 +328,14 @@ const App = () => {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 py-8 md:py-10 border-b border-blue-900/30 bg-blue-950/10 backdrop-blur-sm">
+        <section className="px-6 md:px-12 py-8 md:py-10 border-b border-blue-900/30 bg-blue-950/10">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-10">
             <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-cyan-500/80 shrink-0 font-bold">
               Tech Stack:
             </span>
             <div className="flex flex-wrap gap-2.5 md:gap-3">
               {techBadges.map((tech, i) => (
-                <div key={i} className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg border transition-all duration-300 hover:scale-105 cursor-default ${tech.color}`}>
+                <div key={i} className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg border transition-all duration-200 hover:scale-105 cursor-default ${tech.color}`}>
                   {tech.icon}
                   <span className="text-[11px] md:text-xs font-semibold tracking-wide">{tech.name}</span>
                 </div>
@@ -380,7 +369,7 @@ const App = () => {
                   { label: "Proyek", value: "4+", sub: "Selesai" },
                   { label: "Pengalaman", value: "2+", sub: "Tahun Belajar" }
                 ].map((stat, i) => (
-                  <div key={i} className="border border-blue-800/40 rounded-2xl p-5 bg-blue-950/20 hover:border-cyan-500/40 hover:bg-blue-950/35 transition-all duration-300">
+                  <div key={i} className="border border-blue-800/40 rounded-2xl p-5 bg-blue-950/20 hover:border-cyan-500/40 hover:bg-blue-950/35 transition-all duration-200">
                     <p className="text-3xl md:text-4xl font-bold text-white mb-1" style={{ fontFamily: "'Syne', sans-serif" }}>{stat.value}</p>
                     <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-cyan-400/70">{stat.label}</p>
                     <p className="text-xs text-blue-300/50 mt-1">{stat.sub}</p>
@@ -399,8 +388,8 @@ const App = () => {
             {skillCategories.map((cat, i) => {
               const a = accentMap[cat.accent];
               return (
-                <Reveal key={i} delay={i * 50}>
-                  <div className={`h-full border rounded-2xl p-6 md:p-7 bg-blue-950/15 hover:bg-blue-950/30 transition-all duration-400 group cursor-default ${a.border} hover:border-opacity-70`}>
+                <Reveal key={i} delay={i * 30}>
+                  <div className={`h-full border rounded-2xl p-6 md:p-7 bg-blue-950/15 hover:bg-blue-950/30 transition-all duration-200 group cursor-default ${a.border} hover:border-opacity-70`}>
                     <p className={`text-[10px] font-mono uppercase tracking-[0.25em] mb-5 ${a.text}`}>{cat.category}</p>
                     <div className="flex flex-col gap-2.5">
                       {cat.items.map((item, j) => (
@@ -416,12 +405,12 @@ const App = () => {
             })}
           </div>
 
-          <Reveal delay={100}>
+          <Reveal delay={50}>
             <div className="mt-8 border border-blue-800/30 rounded-2xl p-6 md:p-7 bg-blue-950/10">
               <p className="text-[10px] font-mono uppercase tracking-[0.25em] mb-5 text-blue-400/70">Soft Skills</p>
               <div className="flex flex-wrap gap-3">
                 {["Komunikasi Interpersonal & Teknis", "Kolaborasi Tim", "Adaptabilitas", "Kemauan Belajar Tinggi"].map((skill, i) => (
-                  <span key={i} className="text-xs text-blue-200/70 border border-blue-700/30 rounded-full px-4 py-1.5 bg-blue-900/20 hover:border-blue-500/50 hover:text-blue-100/90 transition-all duration-200 cursor-default">
+                  <span key={i} className="text-xs text-blue-200/70 border border-blue-700/30 rounded-full px-4 py-1.5 bg-blue-900/20 hover:border-blue-500/50 hover:text-blue-100/90 transition-all duration-150 cursor-default">
                     {skill}
                   </span>
                 ))}
@@ -436,11 +425,11 @@ const App = () => {
           </Reveal>
 
           <div className="relative">
-            <div className="absolute left-0 md:left-[calc(25%-1px)] top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500/30 via-blue-700/20 to-transparent hidden md:block"></div>
+            <div className="absolute left-0 md:left-[calc(25%-1px)] top-0 bottom-0 w-px bg-blue-900/30 hidden md:block"></div>
 
             {experiences.map((exp, i) => (
               <Reveal key={i} delay={exp.delay}>
-                <div className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-10 md:py-14 border-b border-blue-900/25 hover:bg-blue-900/10 transition-colors duration-500 rounded-2xl md:px-4 md:-mx-4">
+                <div className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-10 md:py-14 border-b border-blue-900/25 hover:bg-blue-900/10 transition-colors duration-300 rounded-2xl md:px-4 md:-mx-4">
                   <div className="md:col-span-3 text-[10px] md:text-xs font-mono uppercase tracking-[0.12em] text-cyan-300/50 pt-1.5 mb-3 md:mb-0 md:text-right md:pr-8">
                     {exp.period}
                   </div>
@@ -462,8 +451,8 @@ const App = () => {
               </Reveal>
             ))}
 
-            <Reveal delay={250}>
-              <div className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-10 md:py-14 hover:bg-blue-900/10 transition-colors duration-500 rounded-2xl md:px-4 md:-mx-4">
+            <Reveal delay={150}>
+              <div className="group grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-10 md:py-14 hover:bg-blue-900/10 transition-colors duration-300 rounded-2xl md:px-4 md:-mx-4">
                 <div className="md:col-span-3 text-[10px] md:text-xs font-mono uppercase tracking-[0.12em] text-cyan-300/50 pt-1.5 mb-3 md:mb-0 md:text-right md:pr-8">
                   Sep 2022 – Mei 2026
                 </div>
@@ -496,7 +485,7 @@ const App = () => {
           </Reveal>
 
           <p className="text-xs text-blue-300/60 mb-8 font-mono tracking-widest uppercase flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span className="inline-block w-2 h-2 rounded-full bg-cyan-400"></span>
             Klik pada kartu proyek untuk melihat deskripsi detail &amp; fitur lengkap
           </p>
 
@@ -504,36 +493,36 @@ const App = () => {
             {projects.map((project, i) => (
               <Reveal key={i} delay={project.delay} className={project.stagger ? "md:mt-20 lg:mt-28" : ""}>
                 <div
-                  className="group cursor-pointer transition-all duration-300 hover:-translate-y-2 active:scale-[0.97] active:duration-100"
+                  className="group cursor-pointer transition-all duration-200 hover:-translate-y-1"
                   onClick={() => setSelectedProject(project)}
                 >
-                  <div className="aspect-[16/10] bg-blue-950/40 mb-5 overflow-hidden relative border border-blue-800/30 group-hover:border-cyan-400/70 transition-all duration-700 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.4)]">
+                  <div className="aspect-[16/10] bg-blue-950/40 mb-5 overflow-hidden relative border border-blue-800/30 group-hover:border-cyan-400/50 rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.3)]">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-85 group-hover:opacity-40"
+                      className="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-40"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#020818]/95 to-blue-900/30 opacity-60 group-hover:opacity-80 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#020818]/95 to-blue-900/10 opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
-                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-6 opacity-0 group-hover:opacity-100 translate-y-5 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+                    <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
                       <span className="text-xs font-mono uppercase tracking-[0.25em] text-cyan-400 mb-2">Lihat Detail Proyek</span>
-                      <span className="text-[10px] font-mono tracking-[0.22em] border border-cyan-400/50 rounded-full px-4 py-1.5 text-cyan-200 bg-[#020818]/80 backdrop-blur-sm">
+                      <span className="text-[10px] font-mono tracking-[0.22em] border border-cyan-400/50 rounded-full px-4 py-1.5 text-cyan-200 bg-[#020818]/90">
                         Klik untuk Membuka
                       </span>
                     </div>
 
                     <div className="absolute bottom-5 left-5 z-10">
-                      <span className="text-[10px] font-mono tracking-[0.22em] bg-blue-950/80 border border-blue-800/40 rounded-full px-3.5 py-1 text-cyan-300/95 backdrop-blur-sm">
+                      <span className="text-[10px] font-mono tracking-[0.22em] bg-blue-950/90 border border-blue-800/40 rounded-full px-3.5 py-1 text-cyan-300/95">
                         {project.year}
                       </span>
                     </div>
                   </div>
 
                   <div className="px-1">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight mb-2.5 flex items-center justify-between text-white group-hover:text-cyan-400 transition-colors duration-300" style={{ fontFamily: "'Syne', sans-serif" }}>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight mb-2.5 flex items-center justify-between text-white group-hover:text-cyan-400 transition-colors duration-200" style={{ fontFamily: "'Syne', sans-serif" }}>
                       {project.title}
-                      <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-all duration-400 -translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 text-cyan-400 shrink-0" size={18} />
+                      <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-cyan-400 shrink-0" size={18} />
                     </h3>
                     <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-cyan-500/70 mb-2">{project.category}</p>
                     <p className="text-xs sm:text-sm md:text-base text-blue-200/55 leading-relaxed max-w-md line-clamp-2">
@@ -549,14 +538,14 @@ const App = () => {
         {selectedProject && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
             <div
-              className="absolute inset-0 bg-slate-950/85 backdrop-blur-lg transition-opacity duration-300 animate-fade-in"
+              className="absolute inset-0 bg-slate-950/95"
               onClick={() => setSelectedProject(null)}
             />
 
-            <div className="relative bg-[#040d21] border border-blue-900/60 rounded-3xl w-full max-w-4xl max-h-[85vh] overflow-y-auto shadow-2xl shadow-cyan-950/40 z-10 animate-scale-in">
+            <div className="relative bg-[#040d21] border border-blue-900/60 rounded-3xl w-full max-w-4xl max-h-[85vh] overflow-y-auto shadow-2xl z-10">
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 bg-blue-950/80 border border-blue-800/50 hover:border-cyan-400/80 text-blue-200 hover:text-white p-2.5 rounded-full transition-all duration-300 z-20"
+                className="absolute top-4 right-4 md:top-6 md:right-6 bg-blue-950/90 border border-blue-800/50 hover:border-cyan-400/80 text-blue-200 hover:text-white p-2.5 rounded-full transition-colors duration-200 z-20"
                 aria-label="Tutup Detail Proyek"
               >
                 <X size={20} />
@@ -640,11 +629,11 @@ const App = () => {
                 <span className="text-cyan-400">Something</span>.
               </h3>
               <div className="flex flex-wrap gap-4">
-                <a href="mailto:joenathandaniel33@gmail.com" className="flex items-center gap-3 bg-cyan-500 text-[#020818] hover:bg-cyan-400 hover:scale-105 transition-all duration-300 rounded-full px-7 py-4 md:px-8 md:py-5 text-xs md:text-sm font-bold uppercase tracking-widest shadow-[0_0_35px_rgba(34,211,238,0.35)]" style={{ fontFamily: "'Syne', sans-serif" }}>
+                <a href="mailto:joenathandaniel33@gmail.com" className="flex items-center gap-3 bg-cyan-500 text-[#020818] hover:bg-cyan-400 hover:scale-105 transition-all duration-300 rounded-full px-7 py-4 md:px-8 md:py-5 text-xs md:text-sm font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(34,211,238,0.15)]" style={{ fontFamily: "'Syne', sans-serif" }}>
                   <Mail size={16} />
                   joenathandaniel33@gmail.com
                 </a>
-                <a href="tel:085760311900" className="flex items-center gap-3 border border-cyan-500/40 hover:border-cyan-400/70 hover:bg-cyan-500/10 text-cyan-100 transition-all duration-300 rounded-full px-7 py-4 md:px-8 md:py-5 text-xs md:text-sm font-bold uppercase tracking-widest backdrop-blur-md" style={{ fontFamily: "'Syne', sans-serif" }}>
+                <a href="tel:085760311900" className="flex items-center gap-3 border border-cyan-500/40 hover:border-cyan-400/70 hover:bg-cyan-500/10 text-cyan-100 transition-all duration-300 rounded-full px-7 py-4 md:px-8 md:py-5 text-xs md:text-sm font-bold uppercase tracking-widest" style={{ fontFamily: "'Syne', sans-serif" }}>
                   <Phone size={16} />
                   085760311900
                 </a>
@@ -686,49 +675,16 @@ const App = () => {
 
         html { scroll-behavior: smooth; }
 
+        .bg-radial-vignette {
+          background: radial-gradient(circle at 50% 30%, rgba(29, 78, 216, 0.15) 0%, rgba(2, 8, 24, 0) 70%);
+        }
+
         .bg-grid-pattern {
-          background-size: 48px 48px;
+          background-size: 56px 56px;
           background-image:
-            linear-gradient(to right, rgba(34,211,238,0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(34,211,238,0.03) 1px, transparent 1px);
+            linear-gradient(to right, rgba(34,211,238,0.02) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(34,211,238,0.02) 1px, transparent 1px);
         }
-
-        .bg-noise {
-          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
-        @keyframes spin-slow {
-          0%   { transform: rotate(0deg) translate3d(0, 0, 0) scale(1); }
-          50%  { transform: rotate(180deg) translate3d(2vw, -3vh, 0) scale(1.05); }
-          100% { transform: rotate(360deg) translate3d(0, 0, 0) scale(1); }
-        }
-        @keyframes blob {
-          0%   { transform: translate3d(0, 0, 0) scale(1); }
-          33%  { transform: translate3d(-2vw, 3vh, 0) scale(1.1); }
-          66%  { transform: translate3d(1vw, -1vh, 0) scale(0.95); }
-          100% { transform: translate3d(0, 0, 0) scale(1); }
-        }
-        @keyframes pulse-slow {
-          0%   { transform: scale(1) translate3d(0, 0, 0); opacity: 0.2; }
-          50%  { transform: scale(1.15) translate3d(-1vw, -1vh, 0); opacity: 0.35; }
-          100% { transform: scale(1) translate3d(0, 0, 0); opacity: 0.2; }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; backdrop-filter: blur(0px); }
-          to { opacity: 1; backdrop-filter: blur(8px); }
-        }
-        @keyframes scaleIn {
-          from { opacity: 0; transform: scale(0.96) translateY(12px); }
-          to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        .animate-spin-slow  { animation: spin-slow  35s infinite linear; }
-        .animate-blob       { animation: blob       28s infinite alternate ease-in-out; }
-        .animate-pulse-slow { animation: pulse-slow 22s infinite alternate ease-in-out; }
-        .animate-fade-in    { animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .animate-scale-in   { animation: scaleIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-
-        .will-change-transform { will-change: transform, opacity; }
 
         ::-webkit-scrollbar              { width: 6px; }
         ::-webkit-scrollbar-track        { background: #020818; }
