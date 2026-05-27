@@ -193,7 +193,7 @@ const App = () => {
       ],
       delay: 300,
       stagger: true,
-      image: "src/assets/novelapp.jpeg"
+      image: "./src/assets/novelapp.jpeg"
     }
   ];
 
